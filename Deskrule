@@ -1,4 +1,3 @@
-```ruby
 import bpy
 from bonsai.bim.ifc import IfcStore
 model = IfcStore.get_file()
@@ -36,4 +35,3 @@ else:
     print("Storey 'Level 16' not found.")
     
 print('\n')
-```
