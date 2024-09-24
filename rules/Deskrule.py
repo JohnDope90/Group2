@@ -1,51 +1,34 @@
 import ifcopenshell
-import os
 
-os.chdir('C:/Users/sofie/OneDrive - Danmarks Tekniske Universitet/DTU kandidat/41934 - Advanced BIM/IFC models/GR06')
-model = ifcopenshell.open('CES_BLD_24_06_ARC.ifc')
+def checkRule(model):
+    desk_total = 0
+    desk_in_stories = str()
+    storeys = model.by_type('IfcBuildingStorey')
 
-desks_required = 1620  # Expected value of desks
-
-# Find the building storey that corresponds to "Level 16" and "Level 5"
-storey_level_16 = None
-storey_level_5 = None
-for storey in model.by_type('IfcBuildingStorey'):
-    if storey.Name == 'Level 16':  # Using the correct storey name
-        storey_level_16 = storey
-        break
-
-for storey in model.by_type('IfcBuildingStorey'):
-    if storey.Name == 'Level 5':
-        storey_level_5 = storey
-        break
-
-desks_in_storey = None
-if storey_level_16:
-    # Get the desks (IfcFurniture) that are related to the found storey
-    desks_in_storey = [
-        furniture for furniture in model.by_type('IfcFurniture')
-        if 'desk' in furniture.Name.lower() and 
-           any(rel.RelatingStructure == storey_level_16 for rel in furniture.ContainedInStructure)
-    ]
-    desks_in_storey = desks_in_storey + 13*[
-        furniture for furniture in model.by_type('IfcFurniture')
-        if 'desk' in furniture.Name.lower() and 
-           any(rel.RelatingStructure == storey_level_5 for rel in furniture.ContainedInStructure)
-    ]
-
-    desks_in_model = len(desks_in_storey)
-
-    print('\n')
-    print(f'There are {desks_in_model} desks in the model.')
-
-    # Check to establish if we have the 'correct' number of desks
-    if desks_required == desks_in_model:
-        print(f"Result matches expected value ({desks_required})")
-    elif desks_required > desks_in_model:
-        print("There are fewer desks than expected")
-    else:
-        print("There are more desks than expected")
-else:
-    print("Some storey not found.")
+    #no_of_storeys = len(storeys)
     
-print('\n')
+    for storey in storeys:
+        #print("Storey name:", storey.Name)
+        # ^^ Toggle to print every storey name.
+
+        # vv We define desks as an empty list for each floor.
+        desks = []
+
+        # vv The for-loop below is contained in the storey for-loop
+        for rel in storey.ContainsElements:
+            for elem in rel.RelatedElements:
+            # vv Below checks if element is a desk
+                if (elem.is_a("IfcFurniture") or elem.is_a("IfcFurnishingElement")) and 'desk' in elem.Name.lower():
+                    desks.append(elem)
+                    #every time elem is a desk, it appends to the desks-list
+    
+        # then we print all desks in the storey
+        desk_in_stories += f"Number of desks in {storey.Name}: {len(desks)}\n"
+
+        desk_total = desk_total + len(desks)
+    # Toggle to print the desk name on each floor.    
+    #    for desk in desks:
+    #        print("Desk name:", desk.Name)
+
+    result = [desk_total, desk_in_stories]
+    return result
