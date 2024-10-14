@@ -3,6 +3,8 @@
 > **I am confident coding in Python:**  
 Group result: 1
 
+We, as analysts, are focusing on the compliance of the stairs with fire safety regulations, particularly ensuring they meet the preaccepted solutions for escape routes in the building
+
 ## 2B:
 
 We have chosen to work with the report and building from **#2410**. We want to check that the stairs placed in the cores comply with the preaccepted solutions for fire safety regulations, as these are used as escape routes in the building. The claim is found on page 18 in the 2410 report.
