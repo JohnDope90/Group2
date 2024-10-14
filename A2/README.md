@@ -57,7 +57,8 @@ These claims need to be verified to ensure the staircase meets safety standards 
 ![BPMN Diagram](https://raw.githubusercontent.com/JohnDope90/Group2/7bf15f2b519f4007e4e0160939d07b90cf9b5e9e/A2/BPMN_Stair-Fire-Safety.svg)
 
 ## 2D:
-*  **Identify where a new script / function / tool is needed.**
+*  **Identify where a new script / function / tool is needed.**  
+The areas in blue are where our tool is used.
 
 ![Marked BPMN Diagram](https://raw.githubusercontent.com/JohnDope90/Group2/58b8a92c01c045b9e671328e037ef334a3344932/A2/Marked-BPMN_Stair-Fire-Safety.svg)
 
