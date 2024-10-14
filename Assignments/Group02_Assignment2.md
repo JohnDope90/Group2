@@ -24,11 +24,33 @@ These claims need to be verified to ensure the staircase meets safety standards 
 
 ## 2C:
 
-### Potential Use Cases  
-* [4. Programming](https://timmcginley.github.io/41934/Uses/Cases/12.html)  
-    ##### Description:
-    A process in which a spatial program is used to efficiently and accurately **assess design performance in regard to spatial requirements**. The developed BIM model allows the project team to analyze space and understand the complexity of **space standards and regulations**. Critical decisions are made in this phase of design and bring the most value to the project when needs and options are discussed with the client and the best approach is analyzed.
+* **How you would check this claim?**  
+    * By checking the IFC model according to the regulations.
 
-* [12. Code Validation](https://timmcginley.github.io/41934/Uses/Cases/12.html)  
-    ##### Description:
-    A process in which code validation software is utilized to **check the model parameters against project specific codes**. Code validation is currently in its infant stage of development within the U.S. and is not in widespread use. However, as model checking tools continue to develop, code compliance software with more codes, code validation should become more prevalent within the design industry.
+* **When would this claim need to be checked?**  
+    * All projects.
+
+* **What information does this claim rely on?**  
+    * Building regulations and model data.
+
+* **What phase? planning, design, build or operation.**  
+    * Early design phase.
+
+* **What BIM purpose is required? Gather, generate, analyse, communicate or realise?**  
+    * We gather information and compare it to stakeholder requirements.
+
+* **Review use case examples - do any of these help?, What BIM use case is this closest to? If you cannot find one from the examples, you can make a new one.**
+
+    ### Potential Use Cases  
+    * [4. Programming](https://timmcginley.github.io/41934/Uses/Cases/12.html)  
+        ##### Description:
+        A process in which a spatial program is used to efficiently and accurately **assess design performance in regard to spatial requirements**. The developed BIM model allows the project team to analyze space and understand the complexity of **space standards and regulations**. Critical decisions are made in this phase of design and bring the most value to the project when needs and options are discussed with the client and the best approach is analyzed.
+
+    * [12. Code Validation](https://timmcginley.github.io/41934/Uses/Cases/12.html)  
+        ##### Description:
+        A process in which code validation software is utilized to **check the model parameters against project specific codes**. Code validation is currently in its infant stage of development within the U.S. and is not in widespread use. However, as model checking tools continue to develop, code compliance software with more codes, code validation should become more prevalent within the design industry.
+
+
+* **Produce a BPMN drawing for your chosen use case. link to this so we can see it in your markdown file. To do this you will have to save it as an SVG, please also save the BPMN with it.mYou can use this online tool to create a BPMN file.**
+
+
