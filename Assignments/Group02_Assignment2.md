@@ -5,8 +5,7 @@ Group result: 1
 
 ## 2B:
 
-We have chosen to work with the report and building from **#2410**. We want to check that the stairs placed in the cores **comply with fire safety regulations**, as these are used as escape routes in the building.   
-<span style="color:red"> *__!Find lokation af claim i rapporten!__*</span>
+We have chosen to work with the report and building from **#2410**. We want to check that the stairs placed in the cores comply with the preaccepted solutions for fire safety regulations, as these are used as escape routes in the building. The claim is found on page 18 in the 2410 report.
 
 ## 2C:
 
