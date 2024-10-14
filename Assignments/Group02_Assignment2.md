@@ -15,7 +15,7 @@ The claims we want to check are:
 
 * **Riser Height**: The height of the riser (the vertical part between each tread) should not exceed 18 cm. This ensures that the steps are not too steep, making the staircase easier to climb and reducing the risk of tripping.
 
-* **Ceiling Height**: There must be a minimum clearance of 210 cm from the tread to the ceiling above. This ensures that there is enough headroom for people using the stairs, avoiding the risk of hitting their head.
+* **Ceiling Height**: There must be a minimum clearance of 210 cm from the tread to the ceiling above. This ensures that there is enough headroom for people using the stairs.
 
 These claims need to be verified to ensure the staircase meets safety standards.
 
