@@ -19,7 +19,7 @@ The claims we want to check are:
 
 * **Ceiling Height**: There must be a minimum clearance of 210 cm from the tread to the ceiling above. This ensures that there is enough headroom for people using the stairs.
 
-These claims need to be verified to ensure the staircase meets safety standards [BR18 § 57](https://bygningsreglementet.dk/Tekniske-bestemmelser/02/Krav/57#005499f7-eb23-4ff5-bbaa-16ac6a2bbefe).
+These claims need to be verified to ensure the staircase meets safety standards ([BR18 § 57](https://bygningsreglementet.dk/Tekniske-bestemmelser/02/Krav/57#005499f7-eb23-4ff5-bbaa-16ac6a2bbefe)).
 
 
 ## 2C:
