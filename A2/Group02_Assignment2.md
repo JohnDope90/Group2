@@ -52,10 +52,45 @@ These claims need to be verified to ensure the staircase meets safety standards 
 
 
 * **Produce a BPMN drawing for your chosen use case. link to this so we can see it in your markdown file. To do this you will have to save it as an SVG, please also save the BPMN with it.mYou can use this online tool to create a BPMN file.**  
-    * BPMN Diagram is [here](ADD PATH)  
-    ![BPMN Diagram](ADD PATH)
+    * BPMN Diagram is [here](https://github.com/JohnDope90/Group2/blob/main/A2/BPMN_Stair-Fire-Safety.bpmn).
 
+![BPMN Diagram](https://raw.githubusercontent.com/JohnDope90/Group2/7bf15f2b519f4007e4e0160939d07b90cf9b5e9e/A2/BPMN_Stair-Fire-Safety.svg)
 
+## 2D:
+*  **Identify where a new script / function / tool is needed.**  
+![Marked BPMN Diagram](https://raw.githubusercontent.com/JohnDope90/Group2/7bf15f2b519f4007e4e0160939d07b90cf9b5e9e/A2/Marked-BPMN_Stair-Fire-Safety.svg)
 
+## 2E:
+* **Describe in words your idea for your own OpenBIM ifcOpenShell Tool in Python.**
+    * The tool should check if there is stairs in the building, and if the dimensions and design of these stairs comply with current fire regulations.
 
+* **What is the business and societal value of your tool?**  
+    * It is a quick way to check if the stairs comply with regulations. If they are, they can potentially save lives.  
+    If the stairs do not comply, and it is discovered too late, the mistake will be very expensive to correct.
 
+* **Produce a BPMN diagram to summarise your idea.**
+    * The diagram of the code idea is [here](https://github.com/JohnDope90/Group2/blob/main/A2/BPMN_Script-Idea.bpmn).
+
+![Script BPMN Diagram](https://raw.githubusercontent.com/JohnDope90/Group2/7bf15f2b519f4007e4e0160939d07b90cf9b5e9e/A2/BPMN_Script-Idea.svg)
+
+## 2F:
+
+* **Identify what information you need to extract from the model.**  
+    Properties within IFCstairs and
+    dimensions between stair elements.
+    
+    * **Where is this in IFC?**  
+    Architecture model.
+
+    * **Is it in the model?**  
+    Yes, the core stairs are modelled in the IFC from #2410.
+
+    * **Do you know how to get it in ifcOpenShell?**  
+    Not yet. We need to become better at this.
+
+    * **What will you need to learn to do this?**  
+    Learn how to get relevant information out of ifcOpenShell. Naming of elements, properties, etc.
+
+## 2G:
+* **What software licence will you choose for your project?**  
+    * Visual Studio Code
