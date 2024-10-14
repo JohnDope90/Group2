@@ -51,6 +51,11 @@ These claims need to be verified to ensure the staircase meets safety standards 
         A process in which code validation software is utilized to **check the model parameters against project specific codes**. Code validation is currently in its infant stage of development within the U.S. and is not in widespread use. However, as model checking tools continue to develop, code compliance software with more codes, code validation should become more prevalent within the design industry.
 
 
-* **Produce a BPMN drawing for your chosen use case. link to this so we can see it in your markdown file. To do this you will have to save it as an SVG, please also save the BPMN with it.mYou can use this online tool to create a BPMN file.**
+* **Produce a BPMN drawing for your chosen use case. link to this so we can see it in your markdown file. To do this you will have to save it as an SVG, please also save the BPMN with it.mYou can use this online tool to create a BPMN file.**  
+    * BPMN Diagram is [here](ADD PATH)  
+    ![BPMN Diagram](ADD PATH)
+
+
+
 
 
