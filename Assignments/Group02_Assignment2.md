@@ -11,6 +11,8 @@ We have chosen to work with the report and building from **#2410**. We want to c
 
 The claims we want to check are:
 
+* **Free Stair Width**: The free width of the staircase must be at least 1.0 m. This ensures that the staircase is wide enough to allow for safe passage.
+
 * **Tread Depth**: The depth of the tread (the part of the stair where you step) must be at least 23-25 cm. This dimension is critical for ensuring that the stair is comfortable and safe to walk on. A tread depth within this range provides sufficient surface area for a secure footing.
 
 * **Riser Height**: The height of the riser (the vertical part between each tread) should not exceed 18 cm. This ensures that the steps are not too steep, making the staircase easier to climb and reducing the risk of tripping.
