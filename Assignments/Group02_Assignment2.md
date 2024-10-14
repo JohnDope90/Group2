@@ -9,6 +9,17 @@ We, as analysts, are focusing on the compliance of the stairs with fire safety r
 
 We have chosen to work with the report and building from **#2410**. We want to check that the stairs placed in the cores comply with the preaccepted solutions for fire safety regulations, as these are used as escape routes in the building. The claim is found on page 18 in the 2410 report.
 
+The claims we want to check are:
+
+* **Tread Depth**: The depth of the tread (the part of the stair where you step) must be at least 23-25 cm. This dimension is critical for ensuring that the stair is comfortable and safe to walk on. A tread depth within this range provides sufficient surface area for a secure footing.
+
+* **Riser Height**: The height of the riser (the vertical part between each tread) should not exceed 18 cm. This ensures that the steps are not too steep, making the staircase easier to climb and reducing the risk of tripping.
+
+* **Ceiling Height**: There must be a minimum clearance of 210 cm from the tread to the ceiling above. This ensures that there is enough headroom for people using the stairs, avoiding the risk of hitting their head.
+
+These claims need to be verified to ensure the staircase meets safety standards.
+
+
 ## 2C:
 
 ### Potential Use Cases  
