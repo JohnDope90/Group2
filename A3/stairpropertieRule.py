@@ -23,51 +23,19 @@ def get_stairs(ifc_model):
     print(f"Found {len(stairs)} stairs in the model.")  # Debugging output
     return stairs
 
-# Function to calculate free width between railings
-def calculate_free_width(stair):
-    railings = []
-    for rel in stair.IsDecomposedBy:
-        for obj in rel.RelatedObjects:
-            if obj.is_a("IfcRailing"):
-                railings.append(obj)
-    
-    if len(railings) < 2:
-        print(f"Stair ID: {stair.GlobalId} - Less than two railings found.")
-        return None  # Insufficient data to calculate free width
-    
-    # Extract positions if available
-    railing_positions = []
-    for railing in railings:
-        if railing.ObjectPlacement and railing.ObjectPlacement.RelativePlacement:
-            location = railing.ObjectPlacement.RelativePlacement.Location
-            if location:
-                railing_positions.append(location.Coordinates)
-    
-    if len(railing_positions) == 2:
-        # Calculate the distance between the two railing positions
-        x_diff = railing_positions[1][0] - railing_positions[0][0]
-        y_diff = railing_positions[1][1] - railing_positions[0][1]
-        free_width = (x_diff**2 + y_diff**2)**0.5
-        return free_width
-    else:
-        print(f"Stair ID: {stair.GlobalId} - Could not extract positions for both railings.")
-        return None
-
-# Function to check stair requirements, including free width check
+# Function to check stair properties
 def check_stair_requirements(stair):
     issues = []
     
-    # Check Free Stair Width between railings
-    free_width = calculate_free_width(stair)
-    if free_width is not None and free_width < 1.0:
-        issues.append(f"Free Stair Width between railings is too narrow: {free_width:.2f} m")
-    elif free_width is None:
-        issues.append("Unable to calculate free stair width between railings.")
-    
-    # Other checks (like tread depth and riser height)
+    # Iterate through related components (like flights) for each stair
     for rel in stair.IsDecomposedBy:
         for stair_flight in rel.RelatedObjects:
             if stair_flight.is_a("IfcStairFlight"):
+                # Check Free Stair Width
+                width = getattr(stair_flight, 'Width', None)
+                if width and width < 1.0:
+                    issues.append(f"Free Stair Width is too narrow: {width} m")
+                
                 # Check Tread Depth
                 tread_depth = getattr(stair_flight, 'TreadLength', None)
                 if tread_depth and not (0.23 <= tread_depth <= 0.25):
@@ -77,6 +45,12 @@ def check_stair_requirements(stair):
                 riser_height = getattr(stair_flight, 'RiserHeight', None)
                 if riser_height and riser_height > 0.18:
                     issues.append(f"Riser Height is too high: {riser_height} m")
+                
+                # Check Ceiling Height
+                # Assuming `CeilingHeight` is available or calculated separately
+                ceiling_height = getattr(stair_flight, 'CeilingHeight', None)
+                if ceiling_height and ceiling_height < 2.1:
+                    issues.append(f"Ceiling Height is too low: {ceiling_height} m")
     
     return issues
 
