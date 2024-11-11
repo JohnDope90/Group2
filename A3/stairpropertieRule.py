@@ -20,7 +20,7 @@ else:
 # Function to identify all stairs in the IFC model
 def get_stairs(ifc_model):
     stairs = ifc_model.by_type("IfcStair")
-    print(f"Found {len(stairs)} stairs in the model.")  # Debugging output
+    print(f"Found {len(stairs)} stairs in the model.")
     return stairs
 
 # Function to check stair properties
