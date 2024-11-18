@@ -1,53 +1,45 @@
 import ifcopenshell
 from pathlib import Path
-import ifcopenshell.util
-import ifcopenshell.util.shape
-import ifcopenshell.geom
-import numpy as np
-from scipy.cluster.hierarchy import fcluster, linkage
-from scipy.spatial import distance
+import sys
+import threading
+import time
+sys.dont_write_bytecode = True
 
-print("All imported.\n")
+# Import rules
+from A3 import StairwayRule
 
-# Load IFC model
+# Function to display dots
+def show_dots():
+    while running:
+        print(".", end="", flush=True)  # Print a dot without a newline
+        time.sleep(0.5)  # Wait a bit before printing the next dot
 
+print("Loading model")
+
+# Specify the IFC model path
 # Group 10
 path = r"C:/Users/de_Vo/OneDrive - Danmarks Tekniske Universitet/Dokumenter/Kandidat/41934 - Advanced Building Information Modeling/A2/CES_BLD_24_10_ARC.ifc"
 
 # Group 6
 #path = r"C:/Users/de_Vo/OneDrive - Danmarks Tekniske Universitet/Dokumenter/Kandidat/41934 - Advanced Building Information Modeling/A2/CES_BLD_24_06_STR.ifc"
 
-corrected_path = path.replace("\\", "/")
+# Check if the file exists
+if not Path(path).is_file():
+    raise FileNotFoundError(f"No file found at {path}!")
 
-model_path = Path(corrected_path)
-if not model_path.is_file():
-    raise FileNotFoundError(f"No file found at {model_path}!")
+# Start dots while the function runs
+running = True
+dot_thread = threading.Thread(target=show_dots)
+dot_thread.start()
 
-model = ifcopenshell.open(model_path)
+# Call the function
+results = StairwayRule.StairwayRule(path)
 
-print("Model loaded.\n")
+# Stop dots
+running = False
+dot_thread.join()  # Wait for the dot thread to finish
 
- # Step 1: Extract stair coordinates
-    stair_coords = get_stair_coordinates(model)
-
-    # Step 2: Cluster stairs into stairways
-    stairways = cluster_stairs(stair_coords)
-
-    # Step 3: Calculate building height
-    all_coords = [coord for stairway in stairways for coord in stairway]
-    building_min_z, building_max_z = get_building_height(all_coords)
-    print(f"Building height range: {building_min_z} to {building_max_z}\n")
-
-    # Step 4: Filter full-height stairways
-    filtered_stairways = filter_full_height_stairways(stairways, building_min_z, building_max_z)
-
-    # Step 5: Output results
-    print(f"Identified {len(filtered_stairways)} valid full-height stairways.\n")
-    for i, stairway in enumerate(filtered_stairways, start=1):
-        print(f"Full-height Stairway {i} ({len(stairway)} flights):")
-        for stair in stairway:
-            print(f"  - {stair}")
-        print()
-
-    print("Script finished.\n")
-
+# Results
+total_stairways, stairway_info = results
+print("\nNumber of full-height stairways found: {total_stairways}")
+print(stairway_info)
