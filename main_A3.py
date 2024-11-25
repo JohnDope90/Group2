@@ -8,12 +8,6 @@ sys.dont_write_bytecode = True
 # Import rules
 from A3 import StairwayRule
 
-# Function to display dots
-def show_dots():
-    while running:
-        print(".", end="", flush=True)  # Print a dot without a newline
-        time.sleep(0.5)  # Wait a bit before printing the next dot
-
 print("Loading model")
 
 # Specify the IFC model path
@@ -27,17 +21,9 @@ path = r"C:/Users/de_Vo/OneDrive - Danmarks Tekniske Universitet/Dokumenter/Kand
 if not Path(path).is_file():
     raise FileNotFoundError(f"No file found at {path}!")
 
-# Start dots while the function runs
-running = True
-dot_thread = threading.Thread(target=show_dots)
-dot_thread.start()
 
 # Call the function
 results = StairwayRule.StairwayRule(path)
-
-# Stop dots
-running = False
-dot_thread.join()  # Wait for the dot thread to finish
 
 # Results
 total_stairways, stairway_info = results
