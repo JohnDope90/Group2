@@ -21,7 +21,7 @@ if not Path(path).is_file():
 # Call the function
 try:
     results = StairwayRule.StairwayRule(path)
-    total_stairways, stairway_info = results
+    total_stairways, stairway_info, ID_list = results
 
     print(f"\nNumber of full-height stairways found: {total_stairways}")
     print("Stairway information:")
