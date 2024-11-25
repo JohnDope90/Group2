@@ -89,9 +89,6 @@ def StairwayRule(model_path):
     # Adding "IDs" column to df (dataframe)
     df['Global_ID'] = IDs
 
-    # print(df,"\n")
-
-
     ## Taking relevant stairs' coordinates and finding their corresponding IDs ##
 
     row_num = ()
@@ -102,20 +99,11 @@ def StairwayRule(model_path):
             row_num = np.append(row_num, in_array)
 
     row_num = np.unique(row_num).astype(int)
-    #row_num = df[(df["x"] == filtered_stairways[0][3][0]) & (df["y"] == filtered_stairways[0][3][1]) & (df["z"] == filtered_stairways[0][3][2])]
-
-    # row_num = df[(df["x"] == filtered_stairways[0][3][0]) & (df["y"] == filtered_stairways[0][3][1]) & (df["z"] == filtered_stairways[0][3][2])].index.tolist()
-    print(f"Row numbers for relevant stairs:\n {row_num}.\n")
-
-    print(f"Amount of relevant stairs found: {len(row_num)}")
-
+   
     ID_list=[]
     for number in row_num:
-        inlist = (df.iloc[number][3])
+        inlist = df.iloc[number,3]
         ID_list.append(inlist)
 
-    ID_list = ID_list
-
-
-    return [total_stairways, stairway_info, ID_list]
+        return [total_stairways, stairway_info, ID_list]
 
