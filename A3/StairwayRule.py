@@ -105,5 +105,5 @@ def StairwayRule(model_path):
         inlist = df.iloc[number,3]
         ID_list.append(inlist)
 
-        return [total_stairways, stairway_info, ID_list]
+    return [total_stairways, stairway_info, ID_list]
 
