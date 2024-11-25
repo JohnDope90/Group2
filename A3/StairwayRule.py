@@ -2,6 +2,7 @@ import ifcopenshell
 import ifcopenshell.util.shape
 import ifcopenshell.geom
 import numpy as np
+import pandas as pd
 from scipy.cluster.hierarchy import fcluster, linkage
 
 def StairwayRule(model_path):
@@ -71,5 +72,50 @@ def StairwayRule(model_path):
     for i, stairway in enumerate(filtered_stairways, start=1):
         stairway_info += f"- Stairway {i} ({len(stairway)} flights)\n"
 
-    return [total_stairways, stairway_info]
+
+
+
+
+
+
+## Dataframe (table) so we can correlate coordinates and ID for the relevant stairs ##
+    # Dataframe contains all stairs in model
+    df = pd.DataFrame(stair_coords, columns = ["x", "y", "z"])
+    # Taking IDs for all stairs and adding the column to the coordinate table
+    IDs = []
+    for stair in stairs:
+        IDs.append(stair.GlobalId)
+
+    # Adding "IDs" column to df (dataframe)
+    df['Global_ID'] = IDs
+
+    # print(df,"\n")
+
+
+    ## Taking relevant stairs' coordinates and finding their corresponding IDs ##
+
+    row_num = ()
+
+    for rel_stairs in filtered_stairways:
+        for stair in rel_stairs:
+            in_array = df[(df["x"] == stair[0]) & (df["y"] == stair[1])].index.to_numpy()
+            row_num = np.append(row_num, in_array)
+
+    row_num = np.unique(row_num).astype(int)
+    #row_num = df[(df["x"] == filtered_stairways[0][3][0]) & (df["y"] == filtered_stairways[0][3][1]) & (df["z"] == filtered_stairways[0][3][2])]
+
+    # row_num = df[(df["x"] == filtered_stairways[0][3][0]) & (df["y"] == filtered_stairways[0][3][1]) & (df["z"] == filtered_stairways[0][3][2])].index.tolist()
+    print(f"Row numbers for relevant stairs:\n {row_num}.\n")
+
+    print(f"Amount of relevant stairs found: {len(row_num)}")
+
+    ID_list=[]
+    for number in row_num:
+        inlist = (df.iloc[number][3])
+        ID_list.append(inlist)
+
+    ID_list = ID_list
+
+
+    return [total_stairways, stairway_info, ID_list]
 

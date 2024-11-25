@@ -18,7 +18,7 @@ print("Loading model")
 
 # Specify the IFC model path
 # Group 10
-path = r"C:/Users/de_Vo/OneDrive - Danmarks Tekniske Universitet/Dokumenter/Kandidat/41934 - Advanced Building Information Modeling/A2/CES_BLD_24_10_ARC.ifc"
+path = r"C:\Users\sofie\OneDrive - Danmarks Tekniske Universitet\DTU kandidat\41934 - Advanced BIM\IFC models\GR2406\CES_BLD_24_06_STR.ifc"
 
 # Group 6
 #path = r"C:/Users/de_Vo/OneDrive - Danmarks Tekniske Universitet/Dokumenter/Kandidat/41934 - Advanced Building Information Modeling/A2/CES_BLD_24_06_STR.ifc"
@@ -40,6 +40,9 @@ running = False
 dot_thread.join()  # Wait for the dot thread to finish
 
 # Results
-total_stairways, stairway_info = results
+total_stairways, stairway_info, ID_list = results
+
 print("\nNumber of full-height stairways found: {total_stairways}")
 print(stairway_info)
+
+print(ID_list)
