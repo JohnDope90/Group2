@@ -2,7 +2,7 @@ import ifcopenshell
 from pathlib import Path
 
 # Path to the IFC model
-model_path = Path("C:/Users/de_Vo/OneDrive - Danmarks Tekniske Universitet/Dokumenter/Kandidat/41934 - Advanced Building Information Modeling/A2/CES_BLD_24_10_ARC.ifc")
+model_path = Path(r"C:\Users\sofie\OneDrive - Danmarks Tekniske Universitet\DTU kandidat\41934 - Advanced BIM\IFC models\GR2406\CES_BLD_24_06_STR.ifc")
 
 # Check if the file exists and load the model
 if not model_path.is_file():
@@ -15,8 +15,10 @@ else:
     raise Exception("Failed to load IFC model.")
 
 # Function to check TreadLength compliance for all IfcStairFlight elements
-def check_tread_length_compliance(ifc_model, min_length=230.0, max_length=250.0):
-    stair_flights = ifc_model.by_type("IfcStairFlight")
+def check_tread_length_compliance(ID_list, min_length=230.0, max_length=250.0):
+    stair_flights = []
+    for ID in ID_list:
+        stair_flights.append(ifc_model.by_id(ID))
     print(f"Found {len(stair_flights)} stair flights in the model.")
 
     non_compliant_stair_flights = []
@@ -43,8 +45,16 @@ def check_tread_length_compliance(ifc_model, min_length=230.0, max_length=250.0)
 
     return non_compliant_stair_flights
 
+import StairwayRule
+
+# Call the function
+results = StairwayRule.StairwayRule(model_path)
+
+# Results
+total_stairways, stairway_info, ID_list = results
+
 # Call function and print results
-non_compliant_tread_length = check_tread_length_compliance(ifc_model)
+non_compliant_tread_length = check_tread_length_compliance(ID_list)
 
 # Print summary and details of non-compliant stair flights for TreadLength
 if non_compliant_tread_length:
