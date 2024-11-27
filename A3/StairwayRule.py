@@ -106,4 +106,3 @@ def StairwayRule(model_path):
         ID_list.append(inlist)
 
     return [total_stairways, stairway_info, ID_list]
-
