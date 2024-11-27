@@ -23,9 +23,9 @@
 
 * Seems useful, area optimising is important for large constructions
     * Optimises square meter price per office worker
-* A challenge to do the optimisation, BUT
-* Also a challenge to find required information (floor area)
-    * This shouldn't be the case. Perhaps solveable if there were modelling guidelines in general..
+* A challenge to do the optimisation
+* BUT, also a challenge to find required information (floor area)
+    * This shouldn't be the case in an ideal world. Perhaps solveable if there were better modelling guidelines..
 
 #### Group 9 - Assessing Fire Requirements
 
@@ -40,10 +40,10 @@
 * Gathers all materials and amounts and finds CO2 emissions
 * Could be a nice initial LCA in the modelling phase
 * Needs better IFC modelling guidelines as not all elements have materials or amount
-    * Or else it is a lot of estimating
+    * Or else it is a lot of estimating which defeats the purpose
 
 #### Group 1 - Detecting mislabelled materials
-* Aims to reduce the amount of mislabelled elements
-* Simplifies the model by cleaning it up AND finds "missing" elements
-* A lot of manual work initially - might be less the more it is used
+* Aims to reduce the amount of unaccounted elements
+* Simplifies the model by cleaning it up AND finds "missing" elements which seems pretty nice
+* Seems useful but there is a lot of manual work initially - might be less the more the tool is used
     * i.e. building a library of predefined names/types
