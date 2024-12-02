@@ -2,7 +2,7 @@ import ifcopenshell
 from pathlib import Path
 
 # Path to the IFC model
-model_path = Path(r"C:\Users\sofie\OneDrive - Danmarks Tekniske Universitet\DTU kandidat\41934 - Advanced BIM\IFC models\GR2406\CES_BLD_24_06_STR.ifc")
+model_path = r"C:/Users/de_Vo/OneDrive - Danmarks Tekniske Universitet/Dokumenter/Kandidat/41934 - Advanced Building Information Modeling/A2/CES_BLD_24_06_STR.ifc"
 
 # Check if the file exists and load the model
 if not model_path.is_file():
