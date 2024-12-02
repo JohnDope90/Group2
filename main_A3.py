@@ -5,8 +5,7 @@ from A3 import StairwayRule, RiserHeightRule, TreadLengthRule, WidthRule, HeadHe
 print("Loading model")
 
 # Specify the IFC model path
-# model_path = r"C:/Users/de_Vo/OneDrive - Danmarks Tekniske Universitet/Dokumenter/Kandidat/41934 - Advanced Building Information Modeling/A2/CES_BLD_24_06_STR.ifc"
-model_path = Path(r"C:\Users\sofie\OneDrive - Danmarks Tekniske Universitet\DTU kandidat\41934 - Advanced BIM\IFC models\GR2406\CES_BLD_24_06_STR.ifc")
+model_path = Path(r"example.ifc")
 
 # Check if the file exists and load the model
 if not model_path.is_file():
