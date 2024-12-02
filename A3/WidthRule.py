@@ -2,17 +2,19 @@ import ifcopenshell
 import ifcopenshell.geom
 import numpy as np
 
-def WidthRule(model_path):
+def WidthRule(ifc_model, ID_list, min_width=1000.):
     """
     Calculates the widths of all stairs (IfcStairFlight) in the model.
     """
-    # Open the IFC model
-    model = ifcopenshell.open(model_path)
     settings = ifcopenshell.geom.settings()
     settings.set(settings.USE_WORLD_COORDS, True)
 
     stair_widths = []  # List to store stair IDs and their widths
-    stairs = model.by_type("IfcStairFlight")  # Retrieve all stairs in the model
+    stairs = []
+    for ID in ID_list:
+        stairs.append(ifc_model.by_id(ID))
+
+    non_compliant_stairs = []
 
     for stair in stairs:
         try:
@@ -26,14 +28,13 @@ def WidthRule(model_path):
 
             # The stair width is the smaller of x_range and y_range, converted to mm
             width = min(x_range, y_range) * 1000
-            stair_widths.append((stair.GlobalId, round(width, 1)))
+
+            stair_widths.append([stair.GlobalId, width])
         except Exception as e:
             print(f"Error calculating width for stair {stair.GlobalId}: {e}")
 
-    # Prepare results
-    total_stairs = len(stair_widths)
-    width_info = f"Calculated widths for {total_stairs} stairs:\n"
-    for stair_id, width in stair_widths:
-        width_info += f"- Stair ID {stair_id}: {width} mm wide\n"
+        for stair_width in stair_widths:
+            if stair_width is not None and stair_width[1] < min_width:
+                non_compliant_stairs.append((stair.GlobalId, round(stair_width, 1)))
 
-    return total_stairs, width_info, stair_widths
+    return non_compliant_stairs

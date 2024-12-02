@@ -5,9 +5,8 @@ import numpy as np
 import pandas as pd
 from scipy.cluster.hierarchy import fcluster, linkage
 
-def StairwayRule(model_path):
+def StairwayRule(model):
     # Find all stair flights
-    model = ifcopenshell.open(model_path)
     stairs = model.by_type("IfcStairFlight")
     settings = ifcopenshell.geom.settings()
     settings.set(settings.SITE_LOCAL_PLACEMENT, True)
